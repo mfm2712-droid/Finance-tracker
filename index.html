@@ -288,7 +288,7 @@ h1{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;l
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const STORAGE_KEY='finance_tracker_v5';
+const STORAGE_KEY='finance_tracker_v7';
 const MONTHS=['mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const LABELS={mayo:'Mayo',junio:'Junio',julio:'Julio',agosto:'Agosto',septiembre:'Septiembre',octubre:'Octubre',noviembre:'Noviembre',diciembre:'Diciembre',enero:'Enero'};
 const MONTH_COLORS={mayo:'#534AB7',junio:'#1D9E75',julio:'#D85A30',agosto:'#BA7517',septiembre:'#185FA5',octubre:'#A14080',noviembre:'#3D6E2C',diciembre:'#8B3A3A',enero:'#2B6E96'};
@@ -296,19 +296,6 @@ const TAB_CLASS={mayo:'active-mayo',junio:'active-junio',julio:'active-julio',ag
 
 const RAW_ROWS={
   mayo:[
-    {date:'2026-05-05',desc:'OVO restante',amt:-45},
-    {date:'2026-05-05',desc:'Cuota Tesla',amt:-337},
-    {date:'2026-05-05',desc:'Cuota coche viejo',amt:-236},
-    {date:'2026-05-05',desc:'Marbles',amt:-85},
-    {date:'2026-05-05',desc:'Raylo',amt:-82},
-    {date:'2026-05-05',desc:'BNPL',amt:-13.32},
-    {date:'2026-05-06',desc:'BNPL',amt:-31.78},
-    {date:'2026-05-07',desc:'BNPL',amt:-11},
-    {date:'2026-05-08',desc:'TipJar viernes',amt:120},
-    {date:'2026-05-09',desc:'Gasto personal',amt:-30},
-    {date:'2026-05-09',desc:'BNPL',amt:-30.99},
-    {date:'2026-05-10',desc:'BNPL',amt:-20.76},
-    {date:'2026-05-11',desc:'BNPL',amt:-46.48},
     {date:'2026-05-12',desc:'Adelanto salario',amt:150},
     {date:'2026-05-12',desc:'BNPL',amt:-31.01},
     {date:'2026-05-13',desc:'BNPL',amt:-4},
@@ -339,19 +326,38 @@ const RAW_ROWS={
     {date:'2026-06-01',desc:'Zable (£120) + DFH (£125) + Raylo (£86)',amt:-331},
     {date:'2026-06-01',desc:'CreditSpring (£100) + Marbles (£86)',amt:-171},
     {date:'2026-06-01',desc:'O2 (£70) + Muebles y streaming (£60)',amt:-172},
+    {date:'2026-06-01',desc:'BNPL Klarna',amt:-16.32},
     {date:'2026-06-02',desc:'Mini trip',amt:-420},
     {date:'2026-06-02',desc:'Cuota Tesla',amt:-387},
+    {date:'2026-06-02',desc:'BNPL Klarna',amt:-4.84},
+    {date:'2026-06-03',desc:'BNPL Klarna',amt:-34.83},
     {date:'2026-06-05',desc:'TipJar viernes',amt:120},
     {date:'2026-06-05',desc:'Seguro Tesla',amt:-175},
+    {date:'2026-06-05',desc:'BNPL Klarna',amt:-26.04},
     {date:'2026-06-06',desc:'Gasto personal',amt:-30},
+    {date:'2026-06-06',desc:'BNPL Klarna',amt:-36.42},
+    {date:'2026-06-07',desc:'BNPL Klarna',amt:-40.48},
+    {date:'2026-06-08',desc:'BNPL Klarna',amt:-3.59},
+    {date:'2026-06-09',desc:'BNPL Klarna',amt:-12.14},
+    {date:'2026-06-10',desc:'BNPL Klarna',amt:-3.34},
+    {date:'2026-06-11',desc:'BNPL Klarna',amt:-27.01},
     {date:'2026-06-12',desc:'TipJar viernes',amt:120},
+    {date:'2026-06-12',desc:'BNPL Klarna',amt:-4.25},
     {date:'2026-06-13',desc:'Gasto personal',amt:-30},
-    {date:'2026-06-15',desc:'BNPL promedio',amt:-150},
+    {date:'2026-06-14',desc:'BNPL Klarna',amt:-10.64},
+    {date:'2026-06-15',desc:'BNPL Klarna',amt:-7.20},
+    {date:'2026-06-16',desc:'BNPL Klarna',amt:-4.85},
     {date:'2026-06-19',desc:'TipJar viernes',amt:120},
+    {date:'2026-06-19',desc:'BNPL Klarna',amt:-16.82},
     {date:'2026-06-20',desc:'Gasto personal',amt:-30},
+    {date:'2026-06-21',desc:'BNPL Klarna',amt:-27.48},
+    {date:'2026-06-22',desc:'BNPL Klarna',amt:-3.61},
+    {date:'2026-06-23',desc:'BNPL Klarna',amt:-3.00},
     {date:'2026-06-24',desc:'Salario junio',amt:3080},
     {date:'2026-06-26',desc:'TipJar viernes',amt:120},
     {date:'2026-06-27',desc:'Gasto personal',amt:-30},
+    {date:'2026-06-29',desc:'BNPL Klarna',amt:-43.61},
+    {date:'2026-06-30',desc:'BNPL Klarna',amt:-28.02},
     {date:'2026-06-30',desc:'Chica limpieza / otros',amt:-60}
   ],
   julio:[
