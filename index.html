@@ -309,7 +309,7 @@ window.__fb = { db, ref, set, onValue, dataRef, ready: false, lastRemote: null }
 let saveTimer = null;
 window.cloudSave = function(payload){
   clearTimeout(saveTimer);
- finance_tracker_v8 saveTimer = setTimeout(()=>{
+ finance_tracker_v9 saveTimer = setTimeout(()=>{
     set(dataRef, payload).catch(e=>console.warn('Cloud save error:',e));
   }, 400);
 };
@@ -339,7 +339,7 @@ onValue(dataRef, snapshot => {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const STORAGE_KEY'finance_tracker_v8'
+const STORAGE_KEY'finance_tracker_v9'
 const MONTHS=['mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const LABELS={mayo:'Mayo',junio:'Junio',julio:'Julio',agosto:'Agosto',septiembre:'Septiembre',octubre:'Octubre',noviembre:'Noviembre',diciembre:'Diciembre',enero:'Enero'};
 const MONTH_COLORS={mayo:'#534AB7',junio:'#1D9E75',julio:'#D85A30',agosto:'#BA7517',septiembre:'#185FA5',octubre:'#A14080',noviembre:'#3D6E2C',diciembre:'#8B3A3A',enero:'#2B6E96'};
