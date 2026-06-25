@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="Finance">
 <meta name="theme-color" content="#0d1117">
 <title>Finance Tracker 2026</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Ã°ÂÂÂ°</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ÃÂ°ÃÂÃÂÃÂ°</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -147,36 +147,36 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
       <div class="header-sub">Dashboard financiero personal</div>
     </div>
   </div>
-  <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-text">SincronizandoÃ¢ÂÂ¦</span></div>
+  <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-text">SincronizandoÃÂ¢ÃÂÃÂ¦</span></div>
 </div>
 <div class="hero">
   <div class="hero-grid">
-    <div class="hero-card"><div class="hero-label">Saldo Final</div><div class="hero-val positive" id="hero-bal">ÃÂ£0.00</div></div>
-    <div class="hero-card"><div class="hero-label">Ingresos</div><div class="hero-val income" id="hero-inc">ÃÂ£0.00</div></div>
-    <div class="hero-card"><div class="hero-label">Gastos</div><div class="hero-val expense" id="hero-exp">ÃÂ£0.00</div></div>
+    <div class="hero-card"><div class="hero-label">Saldo Final</div><div class="hero-val positive" id="hero-bal">ÃÂÃÂ£0.00</div></div>
+    <div class="hero-card"><div class="hero-label">Ingresos</div><div class="hero-val income" id="hero-inc">ÃÂÃÂ£0.00</div></div>
+    <div class="hero-card"><div class="hero-label">Gastos</div><div class="hero-val expense" id="hero-exp">ÃÂÃÂ£0.00</div></div>
   </div>
   <div class="hero-opening" id="opening-ctrl"><span class="opening-label" id="opening-label">Saldo inicial:</span><input class="opening-input" id="opening-input" type="number" step="0.01" value="113"></div>
 </div>
 <div class="tabs-wrap" id="tabs"></div>
 <div class="view-switch">
-  <button class="view-btn active" id="btn-lista" onclick="setView('lista')">Ã°ÂÂÂ Transacciones</button>
-  <button class="view-btn" id="btn-grafica" onclick="setView('grafica')">Ã°ÂÂÂ GrÃÂ¡ficas</button>
+  <button class="view-btn active" id="btn-lista" onclick="setView('lista')">ÃÂ°ÃÂÃÂÃÂ Transacciones</button>
+  <button class="view-btn" id="btn-grafica" onclick="setView('grafica')">ÃÂ°ÃÂÃÂÃÂ GrÃÂÃÂ¡ficas</button>
 </div>
 <div id="view-lista">
   <div class="add-row">
     <input class="field-date" id="new-date" type="date">
-    <div class="type-pills"><button class="type-pill sel-in" id="pill-in" onclick="setType('in')">+ Ingreso</button><button class="type-pill" id="pill-out" onclick="setType('out')">Ã¢ÂÂ Gasto</button></div>
-    <input class="field-desc" id="new-desc" type="text" placeholder="DescripciÃÂ³nÃ¢ÂÂ¦">
+    <div class="type-pills"><button class="type-pill sel-in" id="pill-in" onclick="setType('in')">+ Ingreso</button><button class="type-pill" id="pill-out" onclick="setType('out')">ÃÂ¢ÃÂÃÂ Gasto</button></div>
+    <input class="field-desc" id="new-desc" type="text" placeholder="DescripciÃÂÃÂ³nÃÂ¢ÃÂÃÂ¦">
     <input class="field-amt" id="new-amt" type="number" step="0.01" placeholder="0.00">
     <button class="add-btn" onclick="addRow()">Agregar</button>
   </div>
-  <div class="drag-hint">Ã¢ÂÂ MantÃÂ©n pulsado para reordenar</div>
+  <div class="drag-hint">ÃÂ¢ÃÂÃÂ MantÃÂÃÂ©n pulsado para reordenar</div>
   <div class="tx-list" id="tx-list"></div>
 </div>
 <div id="view-grafica" style="display:none">
   <div class="chart-panel">
-    <div class="chart-title">Balance diario ÃÂ· <span id="chart-month-label">Junio</span></div>
-    <div class="chart-sub">EvoluciÃÂ³n del saldo con ingresos y gastos</div>
+    <div class="chart-title">Balance diario ÃÂÃÂ· <span id="chart-month-label">Junio</span></div>
+    <div class="chart-sub">EvoluciÃÂÃÂ³n del saldo con ingresos y gastos</div>
     <div class="chart-legend">
       <span class="legend-item"><span class="legend-dot" style="background:#39d353"></span>Balance</span>
       <span class="legend-item"><span class="legend-dot" style="background:#58a6ff"></span>Ingresos</span>
@@ -185,7 +185,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
     <div class="chart-canvas-wrap"><canvas id="main-chart"></canvas></div>
   </div>
   <div class="compare-panel">
-    <div class="compare-title">Ã°ÂÂÂ Comparativa mensual de balances</div>
+    <div class="compare-title">ÃÂ°ÃÂÃÂÃÂ Comparativa mensual de balances</div>
     <div class="compare-row" id="compare-cards"></div>
     <div class="bar-section" id="bar-section"></div>
   </div>
@@ -193,18 +193,18 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 </div>
 <div class="modal-backdrop" id="edit-modal" style="display:none">
   <div class="modal-sheet">
-    <div class="modal-title">Editar transacciÃÂ³n</div>
+    <div class="modal-title">Editar transacciÃÂÃÂ³n</div>
     <div class="modal-field"><label>Fecha</label><input id="modal-date" type="date"></div>
-    <div class="modal-field"><label>DescripciÃÂ³n</label><input id="modal-desc" type="text"></div>
+    <div class="modal-field"><label>DescripciÃÂÃÂ³n</label><input id="modal-desc" type="text"></div>
     <div class="modal-field"><label>Importe (negativo = gasto)</label><input id="modal-amt" type="number" step="0.01"></div>
     <div class="modal-btns">
-      <button class="modal-delete" onclick="confirmDelete()">Ã°ÂÂÂ</button>
+      <button class="modal-delete" onclick="confirmDelete()">ÃÂ°ÃÂÃÂÃÂ</button>
       <button class="modal-cancel" onclick="closeEditModal()">Cancelar</button>
       <button class="modal-save" onclick="saveEditModal()">Guardar</button>
     </div>
     <div class="delete-confirm" id="delete-confirm">
-      <p>ÃÂ¿Eliminar esta transacciÃÂ³n?</p>
-      <div class="delete-confirm-btns"><button class="delete-no" onclick="cancelDelete()">No</button><button class="delete-yes" onclick="deleteRow()">SÃÂ­, eliminar</button></div>
+      <p>ÃÂÃÂ¿Eliminar esta transacciÃÂÃÂ³n?</p>
+      <div class="delete-confirm-btns"><button class="delete-no" onclick="cancelDelete()">No</button><button class="delete-yes" onclick="deleteRow()">SÃÂÃÂ­, eliminar</button></div>
     </div>
   </div>
 </div>
@@ -237,13 +237,13 @@ const RAW_ROWS={
   ],
   junio:[
     {date:'2026-06-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-06-01',desc:'Alquiler (ÃÂÃÂ£1,325) + Council Tax (ÃÂÃÂ£175) + Road Tax (ÃÂÃÂ£17)',amt:-1513},
+    {date:'2026-06-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325) + Council Tax (ÃÂÃÂÃÂÃÂ£175) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-1513},
     {date:'2026-06-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-06-01',desc:'Life insurance (ÃÂÃÂ£35) + Lockbox (ÃÂÃÂ£35)',amt:-70},
+    {date:'2026-06-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Lockbox (ÃÂÃÂÃÂÃÂ£35)',amt:-70},
     {date:'2026-06-01',desc:'Cuota coche viejo',amt:-236},
-    {date:'2026-06-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-06-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-06-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-06-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-06-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-06-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2026-06-01',desc:'BNPL Klarna',amt:-19.91},
     {date:'2026-06-02',desc:'Mini trip',amt:-420},
     {date:'2026-06-02',desc:'Cuota Tesla',amt:-387},
@@ -285,167 +285,193 @@ const RAW_ROWS={
   ],
   julio:[
     {date:'2026-07-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-07-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-07-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-07-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-07-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-07-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-07-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-07-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-07-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-07-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-07-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-07-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-07-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-07-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
+    {date:'2026-07-01',desc:'BNPL Zilch',amt:-33.85},
     {date:'2026-07-02',desc:'Cuota Tesla',amt:-387},
+    {date:'2026-07-02',desc:'BNPL Zilch',amt:-7.27},
+    {date:'2026-07-03',desc:'BNPL Zilch',amt:-3.26},
     {date:'2026-07-04',desc:'Gasto personal',amt:-30},
+    {date:'2026-07-04',desc:'BNPL Zilch',amt:-11.40},
     {date:'2026-07-05',desc:'Seguro Tesla',amt:-175},
+    {date:'2026-07-05',desc:'BNPL Zilch',amt:-29.16},
     {date:'2026-07-06',desc:'TipJar lunes 1',amt:120},
+    {date:'2026-07-06',desc:'BNPL Zilch',amt:-43.78},
+    {date:'2026-07-07',desc:'BNPL Zilch',amt:-26.32},
     {date:'2026-07-08',desc:'Vacaciones',amt:-1000},
+    {date:'2026-07-08',desc:'BNPL Zilch',amt:-3.30},
     {date:'2026-07-11',desc:'Gasto personal',amt:-30},
+    {date:'2026-07-11',desc:'BNPL Zilch',amt:-3.74},
+    {date:'2026-07-12',desc:'BNPL Zilch',amt:-43.48},
     {date:'2026-07-13',desc:'TipJar lunes 2',amt:120},
-    {date:'2026-07-15',desc:'BNPL promedio',amt:-150},
+    {date:'2026-07-13',desc:'BNPL Zilch',amt:-6.92},
+    {date:'2026-07-14',desc:'BNPL Zilch',amt:-17.04},
+    {date:'2026-07-15',desc:'BNPL Zilch',amt:-14.34},
+    {date:'2026-07-16',desc:'BNPL Zilch',amt:-3.60},
+    {date:'2026-07-17',desc:'BNPL Zilch',amt:-3.26},
     {date:'2026-07-18',desc:'Gasto personal',amt:-30},
+    {date:'2026-07-18',desc:'BNPL Zilch',amt:-11.41},
+    {date:'2026-07-19',desc:'BNPL Zilch',amt:-17.59},
+    {date:'2026-07-20',desc:'BNPL Zilch',amt:-18.89},
+    {date:'2026-07-21',desc:'BNPL Zilch',amt:-19.15},
+    {date:'2026-07-22',desc:'BNPL Zilch',amt:-3.30},
     {date:'2026-07-24',desc:'Salario julio',amt:3080},
     {date:'2026-07-25',desc:'Gasto personal',amt:-30},
-    {date:'2026-07-31',desc:'Chica limpieza / otros',amt:-60}
+    {date:'2026-07-25',desc:'BNPL Zilch',amt:-3.75},
+    {date:'2026-07-26',desc:'BNPL Zilch',amt:-17.58},
+    {date:'2026-07-27',desc:'BNPL Zilch',amt:-3.61},
+    {date:'2026-07-28',desc:'BNPL Zilch',amt:-10.40},
+    {date:'2026-07-29',desc:'BNPL Zilch',amt:-97.83},
+    {date:'2026-07-30',desc:'BNPL Zilch',amt:-3.61},
+    {date:'2026-07-31',desc:'Chica limpieza / otros',amt:-60},
+    {date:'2026-07-31',desc:'BNPL Zilch',amt:-41.52}
   ],
   agosto:[
     {date:'2026-08-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-08-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-08-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-08-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-08-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-08-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-08-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-08-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-08-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-08-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
-    {date:'2026-08-01',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-08-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-08-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-08-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-08-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
+    {date:'2026-08-01',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-08-02',desc:'Cuota Tesla',amt:-387},
     {date:'2026-08-05',desc:'Seguro Tesla',amt:-175},
     {date:'2026-08-07',desc:'TipJar viernes',amt:120},
-    {date:'2026-08-08',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-08-08',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-08-14',desc:'TipJar viernes',amt:120},
     {date:'2026-08-15',desc:'BNPL promedio',amt:-150},
-    {date:'2026-08-15',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-08-15',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-08-21',desc:'TipJar viernes',amt:120},
-    {date:'2026-08-22',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-08-22',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-08-24',desc:'Salario agosto',amt:3080},
     {date:'2026-08-28',desc:'TipJar viernes',amt:120},
-    {date:'2026-08-29',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-08-29',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-08-31',desc:'Chica limpieza / otros',amt:-60}
   ],
   septiembre:[
     {date:'2026-09-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-09-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-09-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-09-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-09-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-09-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-09-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-09-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-09-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-09-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-09-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-09-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-09-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-09-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2026-09-02',desc:'Cuota Tesla',amt:-387},
     {date:'2026-09-04',desc:'TipJar viernes',amt:120},
     {date:'2026-09-05',desc:'Seguro Tesla',amt:-175},
-    {date:'2026-09-05',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-09-05',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-09-11',desc:'TipJar viernes',amt:120},
-    {date:'2026-09-12',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-09-12',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-09-15',desc:'BNPL promedio',amt:-150},
     {date:'2026-09-18',desc:'TipJar viernes',amt:120},
-    {date:'2026-09-19',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-09-19',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-09-24',desc:'Salario septiembre',amt:3080},
     {date:'2026-09-25',desc:'TipJar viernes',amt:120},
-    {date:'2026-09-26',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-09-26',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-09-30',desc:'Chica limpieza / otros',amt:-60}
   ],
   octubre:[
     {date:'2026-10-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-10-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-10-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-10-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-10-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-10-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-10-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-10-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-10-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-10-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-10-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-10-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-10-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-10-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2026-10-02',desc:'Cuota Tesla',amt:-387},
     {date:'2026-10-02',desc:'TipJar viernes',amt:120},
-    {date:'2026-10-03',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-10-03',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-10-05',desc:'Seguro Tesla',amt:-175},
     {date:'2026-10-09',desc:'TipJar viernes',amt:120},
-    {date:'2026-10-10',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-10-10',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-10-15',desc:'BNPL promedio',amt:-150},
     {date:'2026-10-16',desc:'TipJar viernes',amt:120},
-    {date:'2026-10-17',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-10-17',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-10-23',desc:'TipJar viernes',amt:120},
     {date:'2026-10-24',desc:'Salario octubre',amt:3080},
-    {date:'2026-10-24',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-10-24',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-10-30',desc:'TipJar viernes',amt:120},
-    {date:'2026-10-31',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-10-31',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-10-31',desc:'Chica limpieza / otros',amt:-60}
   ],
   noviembre:[
     {date:'2026-11-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-11-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-11-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-11-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-11-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-11-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-11-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-11-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-11-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-11-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-11-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-11-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-11-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-11-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2026-11-02',desc:'Cuota Tesla',amt:-387},
     {date:'2026-11-05',desc:'Seguro Tesla',amt:-175},
     {date:'2026-11-06',desc:'TipJar viernes',amt:120},
-    {date:'2026-11-07',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-11-07',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-11-13',desc:'TipJar viernes',amt:120},
-    {date:'2026-11-14',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-11-14',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-11-15',desc:'BNPL promedio',amt:-150},
     {date:'2026-11-20',desc:'TipJar viernes',amt:120},
-    {date:'2026-11-21',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-11-21',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-11-24',desc:'Salario noviembre',amt:3080},
     {date:'2026-11-27',desc:'TipJar viernes',amt:120},
-    {date:'2026-11-28',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-11-28',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-11-30',desc:'Chica limpieza / otros',amt:-60}
   ],
   diciembre:[
     {date:'2026-12-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2026-12-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2026-12-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2026-12-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2026-12-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2026-12-01',desc:'OVO Energy',amt:-159},
-    {date:'2026-12-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2026-12-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2026-12-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2026-12-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2026-12-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2026-12-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2026-12-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2026-12-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2026-12-02',desc:'Cuota Tesla',amt:-387},
     {date:'2026-12-04',desc:'TipJar viernes',amt:120},
     {date:'2026-12-05',desc:'Seguro Tesla',amt:-175},
-    {date:'2026-12-05',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-12-05',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-12-11',desc:'TipJar viernes',amt:120},
-    {date:'2026-12-12',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-12-12',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-12-15',desc:'BNPL promedio',amt:-150},
     {date:'2026-12-18',desc:'TipJar viernes',amt:120},
-    {date:'2026-12-19',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-12-19',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-12-24',desc:'Salario diciembre',amt:3080},
     {date:'2026-12-25',desc:'TipJar viernes',amt:120},
-    {date:'2026-12-26',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2026-12-26',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2026-12-31',desc:'Chica limpieza / otros',amt:-60}
   ],
   enero:[
     {date:'2027-01-01',desc:'Ingreso MFM (fijo)',amt:845},
-    {date:'2027-01-01',desc:'Alquiler (ÃÂÃÂ£1,325)',amt:-1400},
-    {date:'2027-01-01',desc:'Council Tax (ÃÂÃÂ£175) + Lockbox (ÃÂÃÂ£35) + Road Tax (ÃÂÃÂ£17)',amt:-223},
+    {date:'2027-01-01',desc:'Alquiler (ÃÂÃÂÃÂÃÂ£1,325)',amt:-1400},
+    {date:'2027-01-01',desc:'Council Tax (ÃÂÃÂÃÂÃÂ£175) + Lockbox (ÃÂÃÂÃÂÃÂ£35) + Road Tax (ÃÂÃÂÃÂÃÂ£17)',amt:-223},
     {date:'2027-01-01',desc:'OVO Energy',amt:-159},
-    {date:'2027-01-01',desc:'Life insurance (ÃÂÃÂ£35) + Coche viejo',amt:-271},
-    {date:'2027-01-01',desc:'Zable (ÃÂÃÂ£120) + DFH (ÃÂÃÂ£125) + Raylo (ÃÂÃÂ£86)',amt:-331},
-    {date:'2027-01-01',desc:'CreditSpring (ÃÂÃÂ£100) + Marbles (ÃÂÃÂ£86)',amt:-171},
-    {date:'2027-01-01',desc:'O2 (ÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂ£60)',amt:-172},
+    {date:'2027-01-01',desc:'Life insurance (ÃÂÃÂÃÂÃÂ£35) + Coche viejo',amt:-271},
+    {date:'2027-01-01',desc:'Zable (ÃÂÃÂÃÂÃÂ£120) + DFH (ÃÂÃÂÃÂÃÂ£125) + Raylo (ÃÂÃÂÃÂÃÂ£86)',amt:-331},
+    {date:'2027-01-01',desc:'CreditSpring (ÃÂÃÂÃÂÃÂ£100) + Marbles (ÃÂÃÂÃÂÃÂ£86)',amt:-171},
+    {date:'2027-01-01',desc:'O2 (ÃÂÃÂÃÂÃÂ£70) + Muebles y streaming (ÃÂÃÂÃÂÃÂ£60)',amt:-172},
     {date:'2027-01-01',desc:'TipJar viernes',amt:120},
     {date:'2027-01-02',desc:'Cuota Tesla',amt:-387},
-    {date:'2027-01-02',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2027-01-02',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2027-01-05',desc:'Seguro Tesla',amt:-175},
     {date:'2027-01-08',desc:'TipJar viernes',amt:120},
-    {date:'2027-01-09',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2027-01-09',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2027-01-15',desc:'TipJar viernes',amt:120},
     {date:'2027-01-15',desc:'BNPL promedio',amt:-150},
-    {date:'2027-01-16',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2027-01-16',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2027-01-22',desc:'TipJar viernes',amt:120},
-    {date:'2027-01-23',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2027-01-23',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2027-01-24',desc:'Salario enero',amt:3080},
     {date:'2027-01-29',desc:'TipJar viernes',amt:120},
-    {date:'2027-01-30',desc:'Gasto personal (sÃÂÃÂ¡b)',amt:-30},
+    {date:'2027-01-30',desc:'Gasto personal (sÃÂÃÂÃÂÃÂ¡b)',amt:-30},
     {date:'2027-01-31',desc:'Chica limpieza / otros',amt:-60}
   ]
 };
@@ -467,8 +493,8 @@ function computeBalances(m){
   return rows.map(r=>({...r,balance:(bal+=r.amt,bal)}));
 }
 function getClosing(m){ const rows=computeBalances(m); return rows.length?rows[rows.length-1].balance:getOpening(m); }
-function fmt(n){ return(n<0?'Ã¢ÂÂ':'')+'ÃÂ£'+Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
-function fmtShort(n){ const a=Math.abs(n); return(n<0?'Ã¢ÂÂ':'')+'ÃÂ£'+(a>=1000?(a/1000).toFixed(1)+'k':a.toFixed(0)); }
+function fmt(n){ return(n<0?'ÃÂ¢ÃÂÃÂ':'')+'ÃÂÃÂ£'+Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function fmtShort(n){ const a=Math.abs(n); return(n<0?'ÃÂ¢ÃÂÃÂ':'')+'ÃÂÃÂ£'+(a>=1000?(a/1000).toFixed(1)+'k':a.toFixed(0)); }
 
 const MONTH_MAP={1:'enero',5:'mayo',6:'junio',7:'julio',8:'agosto',9:'septiembre',10:'octubre',11:'noviembre',12:'diciembre'};
 function getTodayMonth(){ return MONTH_MAP[new Date().getMonth()+1]||null; }
@@ -557,12 +583,12 @@ function renderList(){
     const el=document.createElement('div');
     el.className='tx-item '+(r.amt>=0?'income-row':'expense-row');
     el.dataset.id=r.id;
-    el.innerHTML=`<div class="tx-handle">Ã¢Â Â¿</div>
+    el.innerHTML=`<div class="tx-handle">ÃÂ¢ÃÂ ÃÂ¿</div>
       <input class="tx-date-input" value="${r.date}" onchange="updateDate('${r.id}',this.value)">
       <div class="tx-desc"><input value="${r.desc.replace(/"/g,'&quot;')}" onchange="updateField('${r.id}',this.value)" onblur="saveState()"></div>
       <div class="tx-amt ${r.amt>=0?'positive':'negative'}"><input type="number" step="0.01" value="${r.amt}" onchange="updateAmt('${r.id}',parseFloat(this.value))" onblur="saveState()"></div>
       <div class="tx-bal ${r.balance>=0?'positive':'negative'}">${fmtShort(r.balance)}</div>
-      <button class="tx-del" onclick="openEditModal('${r.id}')">Ã¢ÂÂ</button>`;
+      <button class="tx-del" onclick="openEditModal('${r.id}')">ÃÂ¢ÃÂÃÂ</button>`;
     setupDrag(el,container);
     container.appendChild(el);
   });
@@ -675,11 +701,11 @@ function renderChart(){
     options:{
       responsive:true,maintainAspectRatio:false,
       interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#8b949e',callbacks:{label:c=>' '+c.dataset.label+': ÃÂ£'+c.raw.toFixed(2)}}},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#8b949e',callbacks:{label:c=>' '+c.dataset.label+': ÃÂÃÂ£'+c.raw.toFixed(2)}}},
       scales:{
         x:{grid:{color:'#21262d'},ticks:{font:{size:10},maxRotation:45}},
-        y:{position:'left',grid:{color:'#21262d'},ticks:{callback:v=>'ÃÂ£'+v.toFixed(0),font:{size:10}}},
-        y2:{position:'right',grid:{display:false},ticks:{callback:v=>'ÃÂ£'+v.toFixed(0),font:{size:10}}}
+        y:{position:'left',grid:{color:'#21262d'},ticks:{callback:v=>'ÃÂÃÂ£'+v.toFixed(0),font:{size:10}}},
+        y2:{position:'right',grid:{display:false},ticks:{callback:v=>'ÃÂÃÂ£'+v.toFixed(0),font:{size:10}}}
       }
     }
   });
@@ -694,7 +720,7 @@ function renderCompare(){
     const prev=i>0?balances[i-1].b:mayoOpening;
     const delta=cur.b-prev;
     const card=document.createElement('div');card.className='compare-card';
-    card.innerHTML=`<div class="compare-month">${LABELS[cur.m]}</div><div class="compare-bal">${fmtShort(cur.b)}</div><div class="compare-delta ${delta>=0?'pos':'neg'}">${delta>=0?'Ã¢ÂÂ²':'Ã¢ÂÂ¼'} ${fmtShort(Math.abs(delta))}</div>`;
+    card.innerHTML=`<div class="compare-month">${LABELS[cur.m]}</div><div class="compare-bal">${fmtShort(cur.b)}</div><div class="compare-delta ${delta>=0?'pos':'neg'}">${delta>=0?'ÃÂ¢ÃÂÃÂ²':'ÃÂ¢ÃÂÃÂ¼'} ${fmtShort(Math.abs(delta))}</div>`;
     cards.appendChild(card);
     const row=document.createElement('div');row.className='bar-row';
     const pct=Math.round(Math.abs(cur.b)/maxAbs*100);
@@ -748,14 +774,14 @@ onValue(dataRef, snapshot => {
   // Show sync indicator
   const indicator = document.getElementById('sync-indicator');
   if (indicator) {
-    indicator.textContent = 'ÃÂ¢ÃÂÃÂ Sincronizado';
+    indicator.textContent = 'ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Sincronizado';
     indicator.style.color = 'var(--teal)';
   }
 }, err => {
   console.warn('Firebase listen error:', err);
   const indicator = document.getElementById('sync-indicator');
   if (indicator) {
-    indicator.textContent = 'ÃÂ¢ÃÂÃÂ  Sin conexiÃÂÃÂ³n';
+    indicator.textContent = 'ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ  Sin conexiÃÂÃÂÃÂÃÂ³n';
     indicator.style.color = 'var(--coral)';
   }
 });
