@@ -89,6 +89,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 .tx-item.deleting{opacity:.3}
 .tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
 .tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
+.tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
 .drop-indicator{height:3px;background:var(--accent);border-radius:2px;margin:1px 0;box-shadow:0 0 6px var(--accent);pointer-events:none}
 .chart-panel{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
 .chart-title{font-size:13px;font-weight:600;margin-bottom:2px}
@@ -214,6 +215,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 
 <script>
 const STORAGE_KEY = 'finance_tracker_v10';
+const DATA_VER=10;
 const MONTHS = ['junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const ALL_MONTHS = ['mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const LABELS = {mayo:'Mayo',junio:'Junio',julio:'Julio',agosto:'Agosto',septiembre:'Septiembre',octubre:'Octubre',noviembre:'Noviembre',diciembre:'Diciembre',enero:'Enero'};
@@ -527,12 +529,13 @@ function loadState(){
   ALL_MONTHS.forEach(m=>{data[m]=RAW_ROWS[m]?RAW_ROWS[m].map((r,i)=>({...r,id:m+'_'+i})):[];});
 }
 function saveState(){
-  const payload={data,mayoOpening,ts:Date.now(),lastMonth:getTodayMonth()};
+  const payload={data,mayoOpening,ts:Date.now(),lastMonth:getTodayMonth(),dv:DATA_VER};
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(payload));}catch(e){}
   if(window.cloudSave) window.cloudSave(payload);
 }
 window.__applyRemoteData=function(remote){
   if(!remote||!remote.data) return;
+  if(remote.dv!==undefined&&remote.dv<DATA_VER) return;
   const localRaw=localStorage.getItem(STORAGE_KEY);
   const localTs=localRaw?(JSON.parse(localRaw).ts||0):0;
   if(remote.ts&&remote.ts<=localTs) return;
@@ -670,72 +673,31 @@ function addRow(){
   document.getElementById('new-amt').value='';
 }
 function setupDrag(el,container){
-  const handle=el.querySelector('.tx-handle');
-  if(!handle) return;
-  let tsy=0;
-  handle.addEventListener('touchstart',e=>{
-    dragStarted=false;tsy=e.touches[0].clientY;
-    longPressTimer=setTimeout(()=>{dragStarted=true;dragEl=el;el.classList.add('dragging');},180);
-  },{passive:true});
-  handle.addEventListener('touchmove',e=>{
-    if(!dragStarted){if(Math.abs(e.touches[0].clientY-tsy)>10)clearTimeout(longPressTimer);return;}
-    e.preventDefault();
-    _moveDragIndicator(e.touches[0].clientX,e.touches[0].clientY,el,container);
-  },{passive:false});
-  handle.addEventListener('touchend',()=>{
-    clearTimeout(longPressTimer);
-    document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
-    if(!dragStarted||!dragEl){dragStarted=false;dragEl=null;el.classList.remove('dragging');return;}
-    el.classList.remove('dragging');
-    _commitDrop(container);
-    dragStarted=false;dragEl=null;
-  });
-  handle.addEventListener('mousedown',e=>{
-    e.preventDefault();
-    dragEl=el;dragStarted=true;el.classList.add('dragging');
-    const onMove=ev=>{_moveDragIndicator(ev.clientX,ev.clientY,el,container);};
-    const onUp=()=>{
-      document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
-      el.classList.remove('dragging');
-      if(dragEl)_commitDrop(container);
-      dragStarted=false;dragEl=null;
-      document.removeEventListener('mousemove',onMove);
-      document.removeEventListener('mouseup',onUp);
-    };
-    document.addEventListener('mousemove',onMove);
-    document.addEventListener('mouseup',onUp);
-  });
+const handle=el.querySelector('.tx-handle');
+if(!handle) return;
+let tsy=0;
+handle.addEventListener('touchstart',e=>{dragStarted=false;tsy=e.touches[0].clientY;longPressTimer=setTimeout(()=>{dragStarted=true;dragEl=el;el.classList.add('dragging');},180);},{passive:true});
+handle.addEventListener('touchmove',e=>{if(!dragStarted){if(Math.abs(e.touches[0].clientY-tsy)>10)clearTimeout(longPressTimer);return;}e.preventDefault();_moveDragIndicator(e.touches[0].clientX,e.touches[0].clientY,el,container);},{passive:false});
+handle.addEventListener('touchend',()=>{clearTimeout(longPressTimer);document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());if(!dragStarted||!dragEl){dragStarted=false;dragEl=null;el.classList.remove('dragging');return;}el.classList.remove('dragging');_commitDrop(container);dragStarted=false;dragEl=null;});
+handle.addEventListener('mousedown',e=>{
+e.preventDefault();dragEl=el;dragStarted=true;el.classList.add('dragging');
+const onMove=ev=>{_moveDragIndicator(ev.clientX,ev.clientY,el,container);};
+const onUp=()=>{document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());el.classList.remove('dragging');if(dragEl)_commitDrop(container);dragStarted=false;dragEl=null;document.removeEventListener('mousemove',onMove);document.removeEventListener('mouseup',onUp);};
+document.addEventListener('mousemove',onMove);document.addEventListener('mouseup',onUp);
+});
 }
 function _moveDragIndicator(cx,cy,el,container){
-  document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
-  const items=[...container.querySelectorAll('.tx-item')];
-  for(const it of items){
-    if(it===el)continue;
-    const rc=it.getBoundingClientRect();
-    if(cy>=rc.top&&cy<=rc.bottom){
-      const ind=document.createElement('div');ind.className='drop-indicator';
-      cy<rc.top+rc.height/2?container.insertBefore(ind,it):it.insertAdjacentElement('afterend',ind);
-      break;
-    }
-  }
+document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
+const items=[...container.querySelectorAll('.tx-item')];
+for(const it of items){if(it===el)continue;const rc=it.getBoundingClientRect();if(cy>=rc.top&&cy<=rc.bottom){const ind=document.createElement('div');ind.className='drop-indicator';cy<rc.top+rc.height/2?container.insertBefore(ind,it):it.insertAdjacentElement('afterend',ind);break;}}
 }
 function _commitDrop(container){
-  const items=[...container.querySelectorAll('.tx-item')];
-  const newOrder=items.map(i=>i.dataset.id).filter(id=>id&&id!=='__opening__');
-  const rows=data[activeMonth]||[];
-  const reordered=newOrder.map(id=>rows.find(r=>r.id===id)).filter(Boolean);
-  if(reordered.length>1&&dragEl){
-    const droppedId=dragEl.dataset.id;
-    const droppedIdx=reordered.findIndex(r=>r.id===droppedId);
-    if(droppedIdx>=0){
-      let refDate;
-      if(droppedIdx>0)refDate=reordered[droppedIdx-1].date;
-      else if(droppedIdx<reordered.length-1)refDate=reordered[droppedIdx+1].date;
-      if(refDate)reordered[droppedIdx]={...reordered[droppedIdx],date:refDate};
-    }
-  }
-  data[activeMonth]=reordered;
-  saveState();render();
+const items=[...container.querySelectorAll('.tx-item')];
+const newOrder=items.map(i=>i.dataset.id).filter(id=>id&&id!=='__opening__');
+const rows=data[activeMonth]||[];
+const reordered=newOrder.map(id=>rows.find(r=>r.id===id)).filter(Boolean);
+if(reordered.length>1&&dragEl){const droppedId=dragEl.dataset.id;const droppedIdx=reordered.findIndex(r=>r.id===droppedId);if(droppedIdx>=0){let refDate;if(droppedIdx>0)refDate=reordered[droppedIdx-1].date;else if(droppedIdx<reordered.length-1)refDate=reordered[droppedIdx+1].date;if(refDate)reordered[droppedIdx]={...reordered[droppedIdx],date:refDate};}}
+data[activeMonth]=reordered;saveState();render();
 }
 
 function renderChart(){
