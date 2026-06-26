@@ -88,6 +88,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 .tx-del:hover{background:var(--coral-light);color:var(--coral)}
 .tx-item.deleting{opacity:.3}
 .tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
+.tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
 .drop-indicator{height:3px;background:var(--accent);border-radius:2px;margin:1px 0;box-shadow:0 0 6px var(--accent);pointer-events:none}
 .chart-panel{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
 .chart-title{font-size:13px;font-weight:600;margin-bottom:2px}
@@ -148,7 +149,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
       <div class="header-sub">Dashboard financiero personal</div>
     </div>
   </div>
-  <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-text">Sincronizando&</span></div>
+  <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-text">Sincronizando…</span></div>
 </div>
 <div class="hero">
   <div class="hero-grid">
@@ -160,18 +161,18 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 </div>
 <div class="tabs-wrap" id="tabs"></div>
 <div class="view-switch">
-  <button class="view-btn active" id="btn-lista" onclick="setView('lista')">=📋 Transacciones</button>
-  <button class="view-btn" id="btn-grafica" onclick="setView('grafica')">=📊 Gráficas</button>
+  <button class="view-btn active" id="btn-lista" onclick="setView('lista')">📋 Transacciones</button>
+  <button class="view-btn" id="btn-grafica" onclick="setView('grafica')">📊 Gráficas</button>
 </div>
 <div id="view-lista">
   <div class="add-row">
     <input class="field-date" id="new-date" type="date">
     <div class="type-pills"><button class="type-pill sel-in" id="pill-in" onclick="setType('in')">+ Ingreso</button><button class="type-pill" id="pill-out" onclick="setType('out')">- Gasto</button></div>
-    <input class="field-desc" id="new-desc" type="text" placeholder="Descripción&">
+    <input class="field-desc" id="new-desc" type="text" placeholder="Descripción">
     <input class="field-amt" id="new-amt" type="number" step="0.01" placeholder="0.00">
     <button class="add-btn" onclick="addRow()">Agregar</button>
   </div>
-  <div class="drag-hint">£ Arrastra (ratón) o mantén pulsado (táctil) para reordenar</div>
+  <div class="drag-hint">Arrastra (ratón) o mantén pulsado (táctil) para reordenar</div>
   <div class="tx-list" id="tx-list"></div>
 </div>
 <div id="view-grafica" style="display:none">
@@ -212,7 +213,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 
 <script>
-const STORAGE_KEY = 'finance_tracker_v9';
+const STORAGE_KEY = 'finance_tracker_v10';
 const MONTHS = ['junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const ALL_MONTHS = ['mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero'];
 const LABELS = {mayo:'Mayo',junio:'Junio',julio:'Julio',agosto:'Agosto',septiembre:'Septiembre',octubre:'Octubre',noviembre:'Noviembre',diciembre:'Diciembre',enero:'Enero'};
@@ -723,9 +724,9 @@ function _commitDrop(container){
   const newOrder=items.map(i=>i.dataset.id).filter(id=>id&&id!=='__opening__');
   const rows=data[activeMonth]||[];
   const reordered=newOrder.map(id=>rows.find(r=>r.id===id)).filter(Boolean);
-  if(reordered.length>1){
-    const droppedId=dragEl?dragEl.dataset.id:null;
-    const droppedIdx=droppedId?reordered.findIndex(r=>r.id===droppedId):-1;
+  if(reordered.length>1&&dragEl){
+    const droppedId=dragEl.dataset.id;
+    const droppedIdx=reordered.findIndex(r=>r.id===droppedId);
     if(droppedIdx>=0){
       let refDate;
       if(droppedIdx>0)refDate=reordered[droppedIdx-1].date;
