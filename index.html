@@ -87,6 +87,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 .tx-del{background:none;border:none;cursor:pointer;color:var(--text-3);font-size:13px;display:flex;align-items:center;justify-content:center;border-radius:6px;width:24px;height:24px}
 .tx-del:hover{background:var(--coral-light);color:var(--coral)}
 .tx-item.deleting{opacity:.3}
+.tx-item.dragging{opacity:.5;transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:99;position:relative;cursor:grabbing;}
 .drop-indicator{height:3px;background:var(--accent);border-radius:2px;margin:1px 0;box-shadow:0 0 6px var(--accent);pointer-events:none}
 .chart-panel{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
 .chart-title{font-size:13px;font-weight:600;margin-bottom:2px}
@@ -170,7 +171,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
     <input class="field-amt" id="new-amt" type="number" step="0.01" placeholder="0.00">
     <button class="add-btn" onclick="addRow()">Agregar</button>
   </div>
-  <div class="drag-hint">£ Mantén pulsado para reordenar</div>
+  <div class="drag-hint">£ Arrastra (ratón) o mantén pulsado (táctil) para reordenar</div>
   <div class="tx-list" id="tx-list"></div>
 </div>
 <div id="view-grafica" style="display:none">
@@ -599,11 +600,11 @@ function renderList(){
       return;
     }
     el.innerHTML=`<div class="tx-handle">?</div>
-      <input class="tx-date-input" value="${r.date}" onchange="updateDate('${r.id}',this.value)">
+      <input class="tx-date-input" type="date" value="${r.date}" onchange="updateDate('${r.id}',this.value)">
       <div class="tx-desc"><input value="${r.desc.replace(/"/g,'&quot;')}" onchange="updateField('${r.id}',this.value)" onblur="saveState()"></div>
-      <div class="tx-amt ${r.amt>=0?'positive':'negative'}"><input type="number" step="0.01" value="${r.amt}" onchange="updateAmt('${r.id}',parseFloat(this.value))" onblur="saveState()"></div>
+      <div class="tx-amt ${r.amt>=0?'positive':'negative'}"><input type="number" step="0.01" value="${r.amt}" oninput="updateAmt('${r.id}',parseFloat(this.value)||0);this.parentElement.className='tx-amt '+(parseFloat(this.value)>=0?'positive':'negative')" onblur="saveState()"></div>
       <div class="tx-bal ${r.balance>=0?'positive':'negative'}">${fmtShort(r.balance)}</div>
-      <button class="tx-del" onclick="openEditModal('${r.id}')"></button>`;
+      <button class="tx-del" onclick="openEditModal('${r.id}')">✕</button>`;
     setupDrag(el,container);
     container.appendChild(el);
   });
@@ -632,7 +633,20 @@ function saveEditModal(){
 }
 function updateDate(id,v){const r=(data[activeMonth]||[]).find(x=>x.id===id);if(r){r.date=v;saveState();render();}}
 function updateField(id,v){const r=(data[activeMonth]||[]).find(x=>x.id===id);if(r) r.desc=v;}
-function updateAmt(id,v){const r=(data[activeMonth]||[]).find(x=>x.id===id);if(r){r.amt=v||0;render();}}
+function updateAmt(id,v){
+  const r=(data[activeMonth]||[]).find(x=>x.id===id);
+  if(!r) return;
+  r.amt=v||0;
+  const rows=computeBalances(activeMonth);
+  const container=document.getElementById('tx-list');
+  rows.forEach(row=>{
+    const el=container.querySelector('[data-id="'+row.id+'"]');
+    if(!el) return;
+    const balEl=el.querySelector('.tx-bal');
+    if(balEl){balEl.textContent=fmtShort(row.balance);balEl.className='tx-bal '+(row.balance>=0?'positive':'negative');}
+  });
+  renderHero();
+}
 function confirmDelete(){document.getElementById('delete-confirm').style.display='block';}
 function cancelDelete(){document.getElementById('delete-confirm').style.display='none';}
 function deleteRow(){
@@ -656,39 +670,73 @@ function addRow(){
 }
 function setupDrag(el,container){
   const handle=el.querySelector('.tx-handle');
+  if(!handle) return;
   let tsy=0;
   handle.addEventListener('touchstart',e=>{
-    dragStarted=false; tsy=e.touches[0].clientY;
-    longPressTimer=setTimeout(()=>{dragStarted=true;dragEl=el;el.style.opacity='.5';},180);
+    dragStarted=false;tsy=e.touches[0].clientY;
+    longPressTimer=setTimeout(()=>{dragStarted=true;dragEl=el;el.classList.add('dragging');},180);
   },{passive:true});
   handle.addEventListener('touchmove',e=>{
-    if(!dragStarted){if(Math.abs(e.touches[0].clientY-tsy)>10) clearTimeout(longPressTimer);return;}
+    if(!dragStarted){if(Math.abs(e.touches[0].clientY-tsy)>10)clearTimeout(longPressTimer);return;}
     e.preventDefault();
-    const t=e.touches[0];
-    const items=[...container.querySelectorAll('.tx-item')];
-    document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
-    for(const it of items){
-      if(it===el) continue;
-      const r=it.getBoundingClientRect();
-      if(t.clientY>=r.top&&t.clientY<=r.bottom){
-        const ind=document.createElement('div'); ind.className='drop-indicator';
-        t.clientY<r.top+r.height/2?container.insertBefore(ind,it):it.insertAdjacentElement('afterend',ind);
-        break;
-      }
-    }
+    _moveDragIndicator(e.touches[0].clientX,e.touches[0].clientY,el,container);
   },{passive:false});
   handle.addEventListener('touchend',()=>{
     clearTimeout(longPressTimer);
     document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
-    if(!dragStarted||!dragEl){dragStarted=false;dragEl=null;return;}
-    el.style.opacity='';
-    const items=[...container.querySelectorAll('.tx-item')];
-    const newOrder=items.map(i=>i.dataset.id);
-    const rows=data[activeMonth]||[];
-    data[activeMonth]=newOrder.map(id=>rows.find(r=>r.id===id)).filter(Boolean);
-    dragStarted=false;dragEl=null;saveState();renderList();
+    if(!dragStarted||!dragEl){dragStarted=false;dragEl=null;el.classList.remove('dragging');return;}
+    el.classList.remove('dragging');
+    _commitDrop(container);
+    dragStarted=false;dragEl=null;
+  });
+  handle.addEventListener('mousedown',e=>{
+    e.preventDefault();
+    dragEl=el;dragStarted=true;el.classList.add('dragging');
+    const onMove=ev=>{_moveDragIndicator(ev.clientX,ev.clientY,el,container);};
+    const onUp=()=>{
+      document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
+      el.classList.remove('dragging');
+      if(dragEl)_commitDrop(container);
+      dragStarted=false;dragEl=null;
+      document.removeEventListener('mousemove',onMove);
+      document.removeEventListener('mouseup',onUp);
+    };
+    document.addEventListener('mousemove',onMove);
+    document.addEventListener('mouseup',onUp);
   });
 }
+function _moveDragIndicator(cx,cy,el,container){
+  document.querySelectorAll('.drop-indicator').forEach(d=>d.remove());
+  const items=[...container.querySelectorAll('.tx-item')];
+  for(const it of items){
+    if(it===el)continue;
+    const rc=it.getBoundingClientRect();
+    if(cy>=rc.top&&cy<=rc.bottom){
+      const ind=document.createElement('div');ind.className='drop-indicator';
+      cy<rc.top+rc.height/2?container.insertBefore(ind,it):it.insertAdjacentElement('afterend',ind);
+      break;
+    }
+  }
+}
+function _commitDrop(container){
+  const items=[...container.querySelectorAll('.tx-item')];
+  const newOrder=items.map(i=>i.dataset.id).filter(id=>id&&id!=='__opening__');
+  const rows=data[activeMonth]||[];
+  const reordered=newOrder.map(id=>rows.find(r=>r.id===id)).filter(Boolean);
+  if(reordered.length>1){
+    const droppedId=dragEl?dragEl.dataset.id:null;
+    const droppedIdx=droppedId?reordered.findIndex(r=>r.id===droppedId):-1;
+    if(droppedIdx>=0){
+      let refDate;
+      if(droppedIdx>0)refDate=reordered[droppedIdx-1].date;
+      else if(droppedIdx<reordered.length-1)refDate=reordered[droppedIdx+1].date;
+      if(refDate)reordered[droppedIdx]={...reordered[droppedIdx],date:refDate};
+    }
+  }
+  data[activeMonth]=reordered;
+  saveState();render();
+}
+
 function renderChart(){
   const rows=computeBalances(activeMonth);
   const byDate={};
