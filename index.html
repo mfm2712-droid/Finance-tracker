@@ -687,8 +687,7 @@ function bulkDelete(){
   const ids=new Set([...document.querySelectorAll('.tx-check input:checked')].map(cb=>cb.dataset.id));
   if(!ids.size) return;
   const n=ids.size;
-  if(!confirm('¿Eliminar '+n+' transacci'+(n===1?'ón':'ones')+' seleccionada'+(n===1?'':'s')+'?
-Esta acción no se puede deshacer.')) return;
+  if(!confirm('¿Eliminar '+n+' transacci'+(n===1?'ón':'ones')+' seleccionada'+(n===1?'':'s')+'? Esta acción no se puede deshacer.')) return;
   data[activeMonth]=(data[activeMonth]||[]).filter(r=>!ids.has(r.id));
   saveState();render();
 }
