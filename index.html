@@ -66,7 +66,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
 .add-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(88,166,255,.4)}
 .drag-hint{font-size:11px;color:var(--text-3);margin-bottom:8px;padding:0 2px}
 .tx-list{display:flex;flex-direction:column;gap:4px}
-.tx-item{display:grid;grid-template-columns:20px 100px 1fr 80px 90px 28px;align-items:center;gap:6px;border-radius:10px;padding:8px 10px;border:1px solid var(--border-2);background:var(--bg-2);transition:all .15s}
+.tx-item{display:grid;grid-template-columns:16px 20px 100px 1fr 80px 90px 28px;align-items:center;gap:6px;border-radius:10px;padding:8px 10px;border:1px solid var(--border-2);background:var(--bg-2);transition:all .15s}
 .tx-item:hover{border-color:var(--border);background:var(--bg-3)}
 .tx-item.income-row{border-left:2px solid var(--teal)}
 .tx-item.expense-row{border-left:2px solid var(--coral)}
@@ -138,6 +138,15 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
   .chart-canvas-wrap{height:220px}
   .compare-card{min-width:110px}
 }
+.tx-check{display:flex;align-items:center;justify-content:center;}
+.tx-check input[type=checkbox]{width:14px;height:14px;accent-color:var(--accent);cursor:pointer;}
+.bulk-bar{display:none;align-items:center;gap:10px;padding:8px 14px;background:rgba(88,166,255,.1);border:1px solid var(--accent);border-radius:10px;margin-bottom:10px;font-size:13px;}
+.bulk-bar.visible{display:flex;}
+.bulk-count{font-weight:600;color:var(--accent);min-width:80px;}
+.bulk-del-btn{padding:6px 16px;background:var(--coral-dark,#da3633);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+.bulk-del-btn:hover{opacity:.85;}
+.bulk-clear-btn{padding:6px 12px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;color:var(--text-2);font-size:12px;cursor:pointer;font-family:inherit;margin-left:auto;}
+.tx-item.selected{background:rgba(88,166,255,.07);border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -158,7 +167,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
     <div class="hero-card"><div class="hero-label">Ingresos</div><div class="hero-val income" id="hero-inc">£0.00</div></div>
     <div class="hero-card"><div class="hero-label">Gastos</div><div class="hero-val expense" id="hero-exp">£0.00</div></div>
   </div>
-  <div class="hero-opening" id="opening-ctrl"><span class="opening-label" id="opening-label">Saldo inicial:</span><input class="opening-input" id="opening-input" type="number" step="0.01" value="113" oninput="if(activeMonth==='junio'){mayoOpening=parseFloat(this.value)||0;saveState();render();}"></div>
+  <div class="hero-opening" id="opening-ctrl"><span class="opening-label" id="opening-label">Saldo inicial:</span><input class="opening-input" id="opening-input" type="number" step="0.01" value="113" oninput="if(activeMonth==='junio'){mayoOpening=Math.round((parseFloat(this.value)||0)*100)/100;renderList();renderHero();}" onblur="if(activeMonth==='junio'){mayoOpening=Math.round((parseFloat(this.value)||0)*100)/100;this.value=mayoOpening;saveState();renderList();renderHero();}" onkeydown="if(event.key==='Enter'&&activeMonth==='junio'){mayoOpening=Math.round((parseFloat(this.value)||0)*100)/100;this.value=mayoOpening;saveState();renderList();renderHero();this.blur();}"></div>
 </div>
 <div class="tabs-wrap" id="tabs"></div>
 <div class="view-switch">
@@ -173,6 +182,7 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
     <input class="field-amt" id="new-amt" type="number" step="0.01" placeholder="0.00">
     <button class="add-btn" onclick="addRow()">Agregar</button>
   </div>
+  <div id="bulk-bar" class="bulk-bar"><span class="bulk-count" id="bulk-count">0 seleccionadas</span><button class="bulk-del-btn" onclick="bulkDelete()">🗑 Eliminar seleccionadas</button><button class="bulk-clear-btn" onclick="clearSelection()">Deseleccionar todo</button></div>
   <div class="drag-hint">Arrastra (ratón) o mantén pulsado (táctil) para reordenar</div>
   <div class="tx-list" id="tx-list"></div>
 </div>
@@ -201,13 +211,13 @@ html,body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'I
     <div class="modal-field"><label>Descripción</label><input id="modal-desc" type="text"></div>
     <div class="modal-field"><label>Importe (negativo = gasto)</label><input id="modal-amt" type="number" step="0.01"></div>
     <div class="modal-btns">
-      <button class="modal-delete" onclick="confirmDelete()">=£</button>
+      <button class="modal-delete" onclick="confirmDelete()">🗑 Eliminar</button>
       <button class="modal-cancel" onclick="closeEditModal()">Cancelar</button>
       <button class="modal-save" onclick="saveEditModal()">Guardar</button>
     </div>
     <div class="delete-confirm" id="delete-confirm">
-      <p>¿Eliminar esta transacción?</p>
-      <div class="delete-confirm-btns"><button class="delete-no" onclick="cancelDelete()">No</button><button class="delete-yes" onclick="deleteRow()">S£, eliminar</button></div>
+      <p>¿Estás seguro de que deseas eliminar esta transacción?</p>
+      <div class="delete-confirm-btns"><button class="delete-no" onclick="cancelDelete()">No, cancelar</button><button class="delete-yes" onclick="deleteRow()">Sí, eliminar</button></div>
     </div>
   </div>
 </div>
@@ -599,11 +609,11 @@ function renderList(){
     el.dataset.id=r.id;
     if(r._isOpening){
       el.style.opacity='0.75';
-      el.innerHTML=`<div class="tx-handle" style="opacity:.3;cursor:default">⠿</div><span style="font-size:11px;color:var(--text-2);white-space:nowrap">${r.date}</span><div class="tx-desc" style="color:var(--text-2);font-style:italic;font-size:12px">${r.desc}</div><div class="tx-amt positive"><span style="font-size:13px;font-weight:600;color:var(--teal)">${fmtShort(r.amt)}</span></div><div class="tx-bal ${r.balance>=0?'positive':'negative'}">${fmtShort(r.balance)}</div><span style="width:24px;display:inline-block"></span>`;
+      el.innerHTML=`<div></div><div class="tx-handle" style="opacity:.3;cursor:default">⠿</div><span style="font-size:11px;color:var(--text-2);white-space:nowrap">${r.date}</span><div class="tx-desc" style="color:var(--text-2);font-style:italic;font-size:12px">${r.desc}</div><div class="tx-amt positive"><span style="font-size:13px;font-weight:600;color:var(--teal)">${fmtShort(r.amt)}</span></div><div class="tx-bal ${r.balance>=0?'positive':'negative'}">${fmtShort(r.balance)}</div><span style="width:24px;display:inline-block"></span>`;
       container.appendChild(el);
       return;
     }
-    el.innerHTML=`<div class="tx-handle">?</div>
+    el.innerHTML=`<div class="tx-check"><input type="checkbox" data-id="${r.id}" onchange="toggleSelect(this)"></div><div class="tx-handle">?</div>
       <input class="tx-date-input" type="date" value="${r.date}" onchange="updateDate('${r.id}',this.value)">
       <div class="tx-desc"><input value="${r.desc.replace(/"/g,'&quot;')}" onchange="updateField('${r.id}',this.value)" onblur="saveState()"></div>
       <div class="tx-amt ${r.amt>=0?'positive':'negative'}"><input type="number" step="0.01" value="${r.amt}" oninput="updateAmt('${r.id}',parseFloat(this.value)||0);this.parentElement.className='tx-amt '+(parseFloat(this.value)>=0?'positive':'negative')" onblur="saveState()"></div>
@@ -657,6 +667,31 @@ function deleteRow(){
   if(!editId||!editMonth) return;
   data[editMonth]=(data[editMonth]||[]).filter(x=>x.id!==editId);
   saveState();closeEditModal();render();
+}
+function toggleSelect(cb){
+  const el=cb.closest('.tx-item');
+  cb.checked?el.classList.add('selected'):el.classList.remove('selected');
+  updateBulkBar();
+}
+function updateBulkBar(){
+  const n=document.querySelectorAll('.tx-check input:checked').length;
+  const bar=document.getElementById('bulk-bar');
+  const cnt=document.getElementById('bulk-count');
+  if(n>0){bar.classList.add('visible');cnt.textContent=n+' seleccionada'+(n===1?'':'s');}
+  else{bar.classList.remove('visible');}
+}
+function clearSelection(){
+  document.querySelectorAll('.tx-check input:checked').forEach(cb=>{cb.checked=false;cb.closest('.tx-item').classList.remove('selected');});
+  updateBulkBar();
+}
+function bulkDelete(){
+  const ids=new Set([...document.querySelectorAll('.tx-check input:checked')].map(cb=>cb.dataset.id));
+  if(!ids.size) return;
+  const n=ids.size;
+  if(!confirm('¿Eliminar '+n+' transacci'+(n===1?'ón':'ones')+' seleccionada'+(n===1?'':'s')+'?
+Esta acción no se puede deshacer.')) return;
+  data[activeMonth]=(data[activeMonth]||[]).filter(r=>!ids.has(r.id));
+  saveState();render();
 }
 function addRow(){
   const date=document.getElementById('new-date').value;
