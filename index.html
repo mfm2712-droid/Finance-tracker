@@ -976,7 +976,8 @@ function renderStatement(key){
       const isPast = it.date < todayStr;
       const isToday = it.date === todayStr;
       const sym = it.sign>0 ? '+' : '-';
-      return `<div class="row-item" style="opacity:${isPast?0.5:1};">
+const editor = it.kind==='income' ? `Modals.income('${it.refId}')` : it.kind==='bill' ? `Modals.recurring('${it.refId}')` : `Modals.expense('${it.refId}')`;
+return `<div class="row-item" style="opacity:${isPast?0.5:1};cursor:pointer;" onclick="${editor}">
         <div class="row-icon" style="background:${it.color}22;color:${it.color};">${it.icon}</div>
         <div class="row-mid">
           <div class="row-title">${escapeHtml(it.label)}${isToday?' <span style="color:var(--accent-2);font-weight:700;">· today</span>':''}</div>
