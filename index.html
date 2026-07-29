@@ -60,6 +60,7 @@ h1,h2,h3,.display{font-family:'Sora',sans-serif;}
 button{font-family:inherit;}
 a{color:inherit;text-decoration:none;}
 .gradient-text{background:linear-gradient(100deg,var(--cyan) 0%,var(--accent-2) 45%,var(--magenta) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
 /* ---------- App shell ---------- */
 #app{max-width:520px;margin:0 auto;padding:18px 16px 8px;}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:6px 2px 18px;}
@@ -71,10 +72,12 @@ a{color:inherit;text-decoration:none;}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
 .icon-btn{width:38px;height:38px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);cursor:pointer;}
 .icon-btn:active{transform:scale(.94);}
+
 .month-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 4px;margin-bottom:16px;}
 .month-chip{flex:0 0 auto;padding:9px 15px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);font-size:13px;color:var(--text-dim);cursor:pointer;white-space:nowrap;font-weight:500;}
 .month-chip.active{background:linear-gradient(135deg,var(--cyan),var(--accent) 60%,var(--magenta));color:#fff;border-color:transparent;box-shadow:0 6px 18px -6px rgba(110,91,255,.8);}
 .month-chip.add{color:var(--accent-2);border-style:dashed;}
+
 /* ---------- Cards ---------- */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow-card);animation:rise .5s cubic-bezier(.19,1,.22,1) both;position:relative;}
 .card.tight{padding:16px;}
@@ -82,6 +85,7 @@ a{color:inherit;text-decoration:none;}
 .section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 12px;}
 .section-title h2{font-size:15px;font-weight:700;margin:0;letter-spacing:.2px;}
 .section-title .link{font-size:12.5px;color:var(--accent-2);cursor:pointer;font-weight:600;}
+
 /* ---------- Hero balance card ---------- */
 .hero{position:relative;overflow:hidden;padding:26px 22px 22px;border-color:rgba(110,91,255,.28);box-shadow:var(--shadow-card), var(--glow-accent);background:linear-gradient(160deg, rgba(110,91,255,.10), rgba(34,225,225,.03) 45%, var(--surface) 70%), var(--surface);}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(110,91,255,.4),transparent 70%);}
@@ -96,6 +100,7 @@ a{color:inherit;text-decoration:none;}
 .pill .v.mint{color:var(--mint);text-shadow:0 0 14px rgba(47,217,138,.5);}
 .pill .v.coral{color:var(--coral);text-shadow:0 0 14px rgba(255,92,122,.5);}
 .pill .v.amber{color:var(--amber);text-shadow:0 0 14px rgba(255,180,84,.5);}
+
 /* ---------- Pace ring ---------- */
 .ring-wrap{display:flex;align-items:center;gap:18px;}
 .ring-svg{flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(110,91,255,.45));}
@@ -103,14 +108,17 @@ a{color:inherit;text-decoration:none;}
 .ring-legend .row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-dim);margin-bottom:7px;}
 .dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;}
 .ring-legend b{color:var(--text);font-family:'Sora';font-weight:700;}
+
 /* ---------- Stat grid ---------- */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .stat-card .icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
 .stat-card .label{font-size:12px;color:var(--text-dim);font-weight:500;}
 .stat-card .value{font-family:'Sora';font-weight:700;font-size:19px;margin-top:2px;}
+
 /* ---------- Progress bar ---------- */
 .progress-track{height:8px;border-radius:99px;background:var(--surface-3);overflow:hidden;margin-top:8px;}
 .progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--accent) 55%,var(--magenta));box-shadow:0 0 10px 0 rgba(110,91,255,.6);transition:width .6s cubic-bezier(.19,1,.22,1);}
+
 /* ---------- List rows ---------- */
 .row-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);}
 .row-item:last-child{border-bottom:none;}
@@ -122,8 +130,10 @@ a{color:inherit;text-decoration:none;}
 .row-amt.neg{color:var(--coral);}
 .row-amt.pos{color:var(--mint);}
 .row-del{width:26px;height:26px;border-radius:8px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-faint);font-size:13px;display:flex;align-items:center;justify-content:center;margin-left:4px;cursor:pointer;}
+
 .empty{text-align:center;padding:28px 10px;color:var(--text-faint);font-size:13px;}
 .empty .big{font-size:26px;margin-bottom:6px;}
+
 /* ---------- Buttons ---------- */
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:var(--radius-md);border:none;font-weight:700;font-size:14px;cursor:pointer;width:100%;}
 .btn-primary{background:linear-gradient(135deg,var(--cyan),var(--accent) 60%,var(--magenta));color:#fff;box-shadow:0 8px 22px -6px rgba(110,91,255,.75);}
@@ -134,6 +144,7 @@ a{color:inherit;text-decoration:none;}
 .fab{position:fixed;right:calc(50% - 260px + 18px);bottom:96px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--accent) 55%,var(--magenta));display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(110,91,255,.85);cursor:pointer;z-index:40;font-size:26px;color:#fff;animation:fabPulse 2.6s ease-in-out infinite;}
 @keyframes fabPulse{0%,100%{box-shadow:0 10px 26px -8px rgba(110,91,255,.85), 0 0 0 0 rgba(34,225,225,.35);}50%{box-shadow:0 10px 30px -6px rgba(110,91,255,.95), 0 0 0 9px rgba(34,225,225,0);}}
 @media(max-width:559px){.fab{right:18px;}}
+
 /* ---------- Bottom nav ---------- */
 .bottomnav{position:fixed;left:0;right:0;bottom:0;background:rgba(10,14,23,.85);backdrop-filter:blur(18px);border-top:1px solid var(--border);z-index:50;}
 .bottomnav-inner{max-width:520px;margin:0 auto;display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom));overflow-x:auto;}
@@ -141,6 +152,7 @@ a{color:inherit;text-decoration:none;}
 .navbtn.active{color:var(--cyan);filter:drop-shadow(0 0 6px rgba(34,225,225,.6));}
 .navbtn svg{width:20px;height:20px;}
 .navbtn span{font-size:9.5px;font-weight:600;letter-spacing:.1px;}
+
 /* ---------- Modal ---------- */
 .modal-backdrop{position:fixed;inset:0;background:rgba(4,6,12,.65);backdrop-filter:blur(3px);z-index:100;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;}
 .modal-backdrop.open{opacity:1;pointer-events:auto;}
@@ -158,29 +170,36 @@ a{color:inherit;text-decoration:none;}
 .chip{padding:8px 13px;border-radius:99px;background:var(--surface-2);border:1px solid var(--border-strong);font-size:12.5px;color:var(--text-dim);cursor:pointer;font-weight:600;}
 .chip.sel{background:var(--accent);color:#fff;border-color:transparent;}
 .modal-actions{display:flex;gap:10px;margin-top:6px;}
+
 /* ---------- Views ---------- */
 .view{display:none;animation:fade .35s ease both;}
 .view.active{display:block;}
 @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
 .tabs{display:flex;gap:6px;background:var(--surface-2);border-radius:14px;padding:4px;margin-bottom:16px;}
 .tabbtn{flex:1;text-align:center;padding:9px 6px;border-radius:11px;font-size:12.5px;font-weight:600;color:var(--text-dim);cursor:pointer;}
 .tabbtn.active{background:var(--surface);color:var(--text);box-shadow:0 4px 10px -4px rgba(0,0,0,.5), inset 0 -2px 0 0 var(--accent);}
+
 .goal-card .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
 .goal-emoji{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,rgba(34,225,225,.18),rgba(110,91,255,.18));border:1px solid rgba(110,91,255,.3);display:flex;align-items:center;justify-content:center;font-size:19px;}
 .goal-nums{text-align:right;}
 .goal-nums .cur{font-family:'Sora';font-weight:700;font-size:17px;}
 .goal-nums .tgt{font-size:11.5px;color:var(--text-faint);}
+
 .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface-3);border:1px solid var(--border-strong);padding:11px 18px;border-radius:99px;font-size:13px;font-weight:600;z-index:200;opacity:0;transition:all .3s cubic-bezier(.19,1,.22,1);box-shadow:0 10px 24px -8px rgba(0,0,0,.6);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
 .settings-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--border);}
 .settings-row:last-child{border-bottom:none;}
 .settings-row .t{font-size:14px;font-weight:600;}
 .settings-row .s{font-size:11.5px;color:var(--text-faint);margin-top:1px;}
+
 .chart-wrap{position:relative;height:190px;margin-top:6px;}
 .legend-list{margin-top:14px;display:flex;flex-direction:column;gap:9px;}
 .legend-item{display:flex;align-items:center;gap:9px;font-size:12.5px;}
 .legend-item .name{flex:1;color:var(--text-dim);}
 .legend-item .amt{font-family:'JetBrains Mono';font-weight:600;}
+
 .cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px;}
 .cal-weekdays div{text-align:center;font-size:10px;font-weight:700;color:var(--text-faint);letter-spacing:.3px;}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
@@ -193,6 +212,7 @@ a{color:inherit;text-decoration:none;}
 .cal-cell .amt-line.in{color:var(--mint);}
 .cal-cell .amt-line.out{color:var(--coral);}
 .cal-daymodal-list{margin-top:10px;}
+
 #planner-tabs, #insights-tabs{overflow-x:auto;}
 #planner-tabs .tabbtn, #insights-tabs .tabbtn{flex:0 0 auto;padding:9px 14px;white-space:nowrap;}
 #planner-swipe, #insights-swipe{position:relative;overflow:hidden;touch-action:pan-y;}
@@ -201,7 +221,9 @@ a{color:inherit;text-decoration:none;}
 </style>
 </head>
 <body>
+
 <div id="app">
+
   <div class="topbar">
     <div class="brand">
       <div class="brand-mark">£</div>
@@ -219,9 +241,12 @@ a{color:inherit;text-decoration:none;}
       </div>
     </div>
   </div>
+
   <div class="month-strip" id="monthStrip"></div>
+
   <!-- ================= DASHBOARD ================= -->
   <div class="view" id="view-dashboard">
+
     <div class="card hero">
       <div class="hero-label">Available today</div>
       <div class="hero-balance mono gradient-text" id="d-balance">£0</div>
@@ -232,6 +257,7 @@ a{color:inherit;text-decoration:none;}
         <div class="pill"><div class="k">Month end fc.</div><div class="v mono" id="d-forecast">£0</div></div>
       </div>
     </div>
+
     <div class="card">
       <div class="ring-wrap">
         <svg class="ring-svg" width="110" height="110" viewBox="0 0 110 110">
@@ -248,6 +274,7 @@ a{color:inherit;text-decoration:none;}
         </div>
       </div>
     </div>
+
     <div class="grid2">
       <div class="card tight stat-card">
         <div class="icon" style="background:rgba(47,217,138,.12);color:var(--mint);">↑</div>
@@ -270,6 +297,7 @@ a{color:inherit;text-decoration:none;}
         <div class="value mono" id="d-savings">£0</div>
       </div>
     </div>
+
     <div class="section-title"><h2>Month progress</h2><span class="link" id="d-month-label">—</span></div>
     <div class="card tight">
       <div style="display:flex;justify-content:space-between;font-size:12px;" class="dim">
@@ -277,9 +305,11 @@ a{color:inherit;text-decoration:none;}
       </div>
       <div class="progress-track"><div class="progress-fill" id="d-progress-fill" style="width:0%"></div></div>
     </div>
+
     <div class="section-title"><h2>Recent activity</h2><span class="link" onclick="Views.go('planner');PlannerTabs.go('expenses');">View all</span></div>
     <div class="card tight" id="d-recent"></div>
   </div>
+
   <!-- ================= PLANNER ================= -->
   <div class="view" id="view-planner">
     <div class="tabs" id="planner-tabs">
@@ -289,26 +319,31 @@ a{color:inherit;text-decoration:none;}
       <div class="tabbtn" data-ptab="expenses" onclick="PlannerTabs.go('expenses')">Expenditure</div>
       <div class="tabbtn" data-ptab="calendar" onclick="PlannerTabs.go('calendar')">Calendar</div>
     </div>
+
     <div id="planner-swipe">
+
       <div class="ptab active" id="ptab-overview">
         <div class="card hero" style="padding:22px;">
           <div class="hero-label" id="p-month-label">—</div>
           <div class="hero-balance mono gradient-text" id="p-projected" style="font-size:34px;">£0</div>
           <div class="hero-sub">Projected balance for this month</div>
         </div>
+
         <div class="section-title"><h2 style="margin-top:2px;">Full month statement</h2></div>
-        <div class="card hero" style="padding:20px;">
-          <div class="hero-label">Opening balance</div>
+        <div class="card hero" style="padding:20px;cursor:pointer;" onclick="Modals.openingBalance()">
+          <div class="hero-label">Opening balance <span style="color:var(--accent-2);font-size:11px;text-transform:none;letter-spacing:0;">· tap to edit</span></div>
           <div class="hero-balance mono" id="stmt-start" style="font-size:30px;">£0</div>
           <div class="hero-sub" id="stmt-start-sub">Carried over automatically from last month</div>
         </div>
         <div class="card tight" id="p-statement"></div>
       </div>
+
       <div class="ptab" id="ptab-income">
         <div class="section-title"><h2 style="margin-top:2px;">Income</h2><span class="link" onclick="Modals.income()">+ Add</span></div>
         <button class="btn btn-ghost btn-sm" style="width:100%;margin-bottom:12px;" onclick="Data.copyRecurringFromPrevMonth()">⟳ Copy income &amp; recurring bills from previous month</button>
         <div class="card tight" id="p-income-list"></div>
       </div>
+
       <div class="ptab" id="ptab-bills">
         <div class="section-title"><h2 style="margin-top:2px;">Recurring bills</h2><span class="link" onclick="Modals.recurring()">+ Add</span></div>
         <button class="btn btn-ghost btn-sm" style="width:100%;margin-bottom:12px;" onclick="Data.copyRecurringFromPrevMonth()">⟳ Copy income &amp; recurring bills from previous month</button>
@@ -318,11 +353,13 @@ a{color:inherit;text-decoration:none;}
           <div class="mono gradient-text" style="font-family:'Sora';font-weight:800;font-size:26px;" id="r-total">£0</div>
         </div>
       </div>
+
       <div class="ptab" id="ptab-expenses">
         <div class="section-title"><h2 style="margin-top:2px;">Expenditure</h2><span class="link" onclick="Modals.expense()">+ Add</span></div>
         <button class="btn btn-ghost btn-sm" style="width:100%;margin-bottom:12px;" onclick="Data.copyRecurringFromPrevMonth()">⟳ Copy income &amp; recurring bills from previous month</button>
         <div class="card tight" id="p-expense-list"></div>
       </div>
+
       <div class="ptab" id="ptab-calendar">
         <div class="card">
           <div class="cal-weekdays" id="cal-weekdays"></div>
@@ -333,15 +370,19 @@ a{color:inherit;text-decoration:none;}
           </div>
         </div>
       </div>
+
     </div>
   </div>
+
   <!-- ================= INSIGHTS ================= -->
   <div class="view" id="view-insights">
     <div class="tabs" id="insights-tabs">
       <div class="tabbtn active" data-itab="breakdown" onclick="InsightsTabs.go('breakdown')">Breakdown</div>
       <div class="tabbtn" data-itab="forecast" onclick="InsightsTabs.go('forecast')">Forecast</div>
     </div>
+
     <div id="insights-swipe">
+
       <div class="itab active" id="itab-breakdown">
         <div class="card">
           <h3 style="margin-top:0;">Spending by category</h3>
@@ -349,6 +390,7 @@ a{color:inherit;text-decoration:none;}
           <div class="legend-list" id="category-legend"></div>
         </div>
       </div>
+
       <div class="itab" id="itab-forecast">
         <div class="card">
           <h3 style="margin-top:0;">Balance projection</h3>
@@ -376,13 +418,16 @@ a{color:inherit;text-decoration:none;}
           Forecast assumes this month's income and recurring bills repeat, plus your average variable spending pace continues at the same rate.
         </div>
       </div>
+
     </div>
   </div>
+
   <!-- ================= GOALS ================= -->
   <div class="view" id="view-goals">
     <div class="section-title"><h2 style="margin-top:2px;">Savings goals</h2><span class="link" onclick="Modals.goal()">+ Add</span></div>
     <div id="g-list"></div>
   </div>
+
   <!-- ================= SETTINGS ================= -->
   <div class="view" id="view-settings">
     <div class="section-title"><h2 style="margin-top:2px;">Today's date</h2></div>
@@ -396,6 +441,7 @@ a{color:inherit;text-decoration:none;}
       </div>
     </div>
     <button class="btn btn-primary" style="margin:14px 0 8px;" onclick="Settings.saveToday()">Save date</button>
+
     <div class="section-title"><h2>Profile</h2></div>
     <div class="card tight">
       <div class="settings-row">
@@ -416,6 +462,8 @@ a{color:inherit;text-decoration:none;}
       <div class="field" style="margin-top:8px;margin-bottom:2px;"><input type="number" id="s-startbal" placeholder="0"></div>
     </div>
     <button class="btn btn-primary" style="margin:14px 0 8px;" onclick="Settings.save()">Save settings</button>
+
+
     <div class="section-title"><h2>Data</h2></div>
     <div class="card tight" style="display:flex;flex-direction:column;gap:10px;">
       <button class="btn btn-ghost" onclick="Settings.exportData()">Export data (JSON)</button>
@@ -425,16 +473,22 @@ a{color:inherit;text-decoration:none;}
       Everything is stored only in this browser's local storage. Nothing is sent anywhere — no account, no server, no tracking. Clearing your browser data will erase it, so use "Export data" to back up.
     </div>
   </div>
+
 </div>
+
 <div class="fab" onclick="Modals.expense()">+</div>
+
 <div class="bottomnav">
   <div class="bottomnav-inner" id="bottomnav-inner"></div>
 </div>
+
 <!-- ============ MODAL ============ -->
 <div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)Modals.close()">
   <div class="modal" id="modalBody"></div>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
 /* =========================================================================
    DATA LAYER
@@ -464,6 +518,7 @@ const LENGTH_OPTIONS = [
   {id:'6m', label:'6 months', unit:'month', count:6},
   {id:'12m', label:'12 months', unit:'month', count:12}
 ];
+
 function uid(){return Math.random().toString(36).slice(2,10);}
 function fmtMonthKey(y,m){return y+'-'+String(m+1).padStart(2,'0');}
 function monthLabel(key){const [y,m]=key.split('-').map(Number);return MONTH_NAMES[m-1]+' '+y;}
@@ -480,6 +535,7 @@ function addPeriod(dateStr, unit, i){
   }
   return d.toISOString().slice(0,10);
 }
+
 const WEEKDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 function occurrenceDatesInMonth(key, item){
   const total = daysInMonth(key);
@@ -546,6 +602,7 @@ function readSchedule(prefix){
     weekday: wdEl ? wdEl.value : 0
   };
 }
+
 function sampleState(){
   const months = {};
   const base = ['2026-07','2026-08','2026-09'];
@@ -590,6 +647,7 @@ function sampleState(){
     todayAuto: true
   };
 }
+
 const Store = {
   state:null,
   load(){
@@ -609,11 +667,7 @@ const Store = {
     if(!this.state.months[key]){
       this.state.months[key] = {income:[],recurring:[],expenses:[]};
     }
-    const m=this.state.months[key];
-if(!m.income)m.income=[];
-if(!m.recurring)m.recurring=[];
-if(!m.expenses)m.expenses=[];
-return m;
+    return this.state.months[key];
   },
   getToday(){
     return this.state.todayAuto ? new Date().toISOString().slice(0,10) : this.state.today;
@@ -631,6 +685,7 @@ return m;
   todayDate(){ return new Date(this.getToday()+'T12:00:00'); }
 };
 Store.load();
+
 function currencySym(){ return CURRENCY_SYMS[Store.state.settings.currency] || '£'; }
 function fmt(n){
   const sym = currencySym();
@@ -639,6 +694,7 @@ function fmt(n){
   return (neg?'-':'')+sym+v;
 }
 function catMeta(id){ return CATS.find(c=>c.id===id) || CATS[CATS.length-1]; }
+
 /* =========================================================================
    CALCULATIONS
    ========================================================================= */
@@ -651,10 +707,21 @@ const Calc = {
     return this.totalIncome(key) - this.totalRecurring(key) - this.totalExpenses(key);
   },
   openingBalance(key){
+    const m = this.monthData(key);
+    if(m.openingOverride!==undefined && m.openingOverride!==null) return Number(m.openingOverride);
     const keys = Object.keys(Store.state.months).sort();
     const idx = keys.indexOf(key);
     let bal = Number(Store.state.settings.startingBalance)||0;
-    for(let i=0; i<idx; i++){ bal += this.netForMonth(keys[i]); }
+    for(let i=0; i<idx; i++){
+      const k = keys[i];
+      const mo = Store.state.months[k];
+      // If an earlier month has an override, chain from it instead of accumulating blindly
+      if(mo.openingOverride!==undefined && mo.openingOverride!==null){
+        bal = Number(mo.openingOverride) + this.netForMonth(k);
+      } else {
+        bal += this.netForMonth(k);
+      }
+    }
     return bal;
   },
   endingBalance(key){ return this.openingBalance(key) + this.netForMonth(key); },
@@ -703,6 +770,7 @@ const Calc = {
     return Store.state.goals.reduce((s,g)=>s+Number(g.current||0),0);
   }
 };
+
 /* =========================================================================
    RENDER: MONTH STRIP
    ========================================================================= */
@@ -739,6 +807,7 @@ function addNextMonth(){
   RenderAll();
   toast('New month added: '+monthLabel(nextKey));
 }
+
 /* =========================================================================
    RENDER: DASHBOARD
    ========================================================================= */
@@ -754,6 +823,7 @@ function renderDashboard(){
   const total = daysInMonth(key);
   const elapsed = Calc.dayOfMonth(key);
   const savings = Calc.savingsCurrentTotal();
+
   document.getElementById('d-balance').textContent = fmt(bal);
   document.getElementById('d-balance-sub').textContent = monthLabel(key)+' · '+(daysLeft>0? daysLeft+' days remaining' : 'Month complete');
   document.getElementById('d-daily').textContent = fmt(Math.round(daily));
@@ -764,10 +834,12 @@ function renderDashboard(){
   document.getElementById('d-variable').textContent = fmt(variable);
   document.getElementById('d-savings').textContent = fmt(savings);
   document.getElementById('d-month-label').textContent = monthLabel(key);
+
   const pct = Math.min(Math.round((elapsed/total)*100),100);
   document.getElementById('d-progress-label').textContent = 'Day '+elapsed+' of '+total;
   document.getElementById('d-progress-pct').textContent = pct+'%';
   document.getElementById('d-progress-fill').style.width = pct+'%';
+
   // pace ring
   const monthPct = total? elapsed/total : 0;
   const startingAvail = Calc.startingAvailable(key);
@@ -793,6 +865,7 @@ function renderDashboard(){
   } else {
     note.innerHTML = '<span style="color:var(--mint);font-weight:600;">On track for the month</span>';
   }
+
   // recent activity
   const recentWrap = document.getElementById('d-recent');
   const exp = [...Calc.monthData(key).expenses].sort((a,b)=> (b.date||'').localeCompare(a.date||'')).slice(0,5);
@@ -803,6 +876,7 @@ function renderDashboard(){
   }
 }
 function getCss(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
 function rowHtml(e){
   const meta = catMeta(e.category);
   const badge = seriesBadge(e);
@@ -828,6 +902,7 @@ function formatDate(d){
   return dt.toLocaleDateString(undefined,{day:'numeric',month:'short'});
 }
 function escapeHtml(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
 /* =========================================================================
    RENDER: PLANNER
    ========================================================================= */
@@ -836,6 +911,7 @@ function renderPlanner(){
   document.getElementById('p-month-label').textContent = monthLabel(key)+' plan';
   const projected = Calc.currentBalance(key);
   document.getElementById('p-projected').textContent = fmt(Math.round(projected));
+
   const inc = Calc.monthData(key).income;
   const incWrap = document.getElementById('p-income-list');
   incWrap.innerHTML = inc.length? [...inc].sort((a,b)=>(a.day||1)-(b.day||1)).map(i=>`
@@ -848,13 +924,16 @@ function renderPlanner(){
       <div class="row-amt pos mono">+${fmt(i.amount)}</div>
       <div class="row-del" onclick="Data.deleteIncome('${i.id}')">✕</div>
     </div>`).join('') : `<div class="empty">No income added</div>`;
+
   const rec = Calc.monthData(key).recurring;
   const recWrap = document.getElementById('p-recurring-list');
   recWrap.innerHTML = rec.length? [...rec].sort((a,b)=>a.day-b.day).map(r=>recurringRowHtml(r)).join('') : `<div class="empty">No recurring bills added</div>`;
   document.getElementById('r-total').textContent = fmt(Calc.totalRecurring(key));
+
   const exp = Calc.monthData(key).expenses;
   const expWrap = document.getElementById('p-expense-list');
   expWrap.innerHTML = exp.length? [...exp].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(rowHtml).join('') : `<div class="empty">No one-off expenses yet</div>`;
+
   renderStatement(key);
 }
 function buildDayItems(key){
@@ -878,6 +957,12 @@ function buildDayItems(key){
 function renderStatement(key){
   const opening = Calc.openingBalance(key);
   document.getElementById('stmt-start').textContent = fmt(Math.round(opening));
+  const mObj = Calc.monthData(key);
+  const isManual = mObj.openingOverride!==undefined && mObj.openingOverride!==null;
+  document.getElementById('stmt-start-sub').textContent = isManual
+    ? 'Manually set for this month'
+    : 'Carried over automatically from last month';
+
   const items = buildDayItems(key);
   const wrap = document.getElementById('p-statement');
   if(items.length===0){
@@ -907,22 +992,26 @@ function renderStatement(key){
   }
   renderCalendar(key, items);
 }
+
 /* =========================================================================
    CALENDAR
    ========================================================================= */
 function renderCalendar(key, items){
   const wd = document.getElementById('cal-weekdays');
   wd.innerHTML = ['S','M','T','W','T','F','S'].map(d=>`<div>${d}</div>`).join('');
+
   const [y,m] = key.split('-').map(Number);
   const total = daysInMonth(key);
   const firstWeekday = new Date(y, m-1, 1).getDay();
   const todayStr = Store.getToday();
+
   const byDay = {};
   items.forEach(it=>{
     const d = it.date;
     if(!byDay[d]) byDay[d] = {in:0, out:0};
     if(it.sign>0) byDay[d].in += Number(it.amount||0); else byDay[d].out += Number(it.amount||0);
   });
+
   let html = '';
   for(let i=0;i<firstWeekday;i++) html += `<div class="cal-cell empty"></div>`;
   for(let d=1; d<=total; d++){
@@ -958,6 +1047,7 @@ function ordinal(n){
   const s=["th","st","nd","rd"], v=n%100;
   return n+(s[(v-20)%10]||s[v]||s[0]);
 }
+
 /* =========================================================================
    RENDER: INSIGHTS (Breakdown + Forecast)
    ========================================================================= */
@@ -968,6 +1058,7 @@ function renderInsightsBreakdown(){
   const labels = Object.keys(breakdown);
   const data = labels.map(l=>breakdown[l]);
   const colors = labels.map(l=>catMeta(l).color);
+
   const ctx = document.getElementById('chart-category');
   ctx.style.filter = 'drop-shadow(0 0 18px rgba(110,91,255,.28))';
   if(categoryChart) categoryChart.destroy();
@@ -997,6 +1088,7 @@ function renderInsights(){
   renderInsightsBreakdown();
   renderForecast();
 }
+
 /* =========================================================================
    RENDER: FORECAST
    ========================================================================= */
@@ -1008,10 +1100,12 @@ function renderForecast(){
   const projections = [bal0];
   let running = bal0;
   for(let i=1;i<=6;i++){ running += net; projections.push(running); }
+
   document.getElementById('f-m0').textContent = fmt(Math.round(projections[0]));
   document.getElementById('f-m3').textContent = fmt(Math.round(projections[3]));
   document.getElementById('f-m6').textContent = fmt(Math.round(projections[6]));
   document.getElementById('f-net').textContent = (net>=0?'+':'')+fmt(Math.round(net));
+
   const labels = ['Now'];
   const [y,m] = key.split('-').map(Number);
   for(let i=1;i<=6;i++){
@@ -1048,6 +1142,7 @@ function renderForecast(){
     }
   });
 }
+
 /* =========================================================================
    RENDER: GOALS
    ========================================================================= */
@@ -1076,6 +1171,7 @@ function renderGoals(){
     </div>`;
   }).join('');
 }
+
 /* =========================================================================
    RENDER: SETTINGS
    ========================================================================= */
@@ -1124,6 +1220,7 @@ const Settings = {
     }
   }
 };
+
 /* =========================================================================
    DATA MUTATIONS
    ========================================================================= */
@@ -1139,6 +1236,7 @@ function updateUndoButton(){
   const btn = document.getElementById('undoBtn');
   if(btn) btn.style.opacity = UndoStack.length ? '1' : '.35';
 }
+
 const Data = {
   undo(){
     if(UndoStack.length===0){ toast('Nothing to undo'); return; }
@@ -1272,6 +1370,18 @@ const Data = {
     Store.state.goals = Store.state.goals.filter(g=>g.id!==id);
     Store.save(); RenderAll();
   },
+  setOpeningOverride(value){
+    pushUndo();
+    const m = Calc.monthData(Store.state.activeMonth);
+    if(value===null || value===''){
+      delete m.openingOverride;
+      toast('Back to automatic carry-over');
+    } else {
+      m.openingOverride = Number(value);
+      toast('Opening balance set manually');
+    }
+    Store.save(); RenderAll();
+  },
   copyRecurringFromPrevMonth(){
     const keys = Object.keys(Store.state.months).sort();
     const idx = keys.indexOf(Store.state.activeMonth);
@@ -1289,6 +1399,7 @@ const Data = {
     toast('Income & recurring bills copied');
   }
 };
+
 /* =========================================================================
    MODALS
    ========================================================================= */
@@ -1376,11 +1487,13 @@ const Modals = {
         <div class="chip sel" data-kind="expense" onclick="Modals.selectKind(this)">↓ Expense</div>
         <div class="chip" data-kind="income" onclick="Modals.selectKind(this)">↑ Income</div>
       </div>`}
+
       <div id="m-tx-income-fields" style="display:none;">
         <div class="field"><label>Transaction name</label><input id="m-inc2-label" placeholder="e.g. Salary, Freelance, Tip Jar"></div>
         <div class="field"><label>Amount (${currencySym()})</label><input id="m-inc2-amount" type="number" placeholder="0"></div>
         ${scheduleFieldsHtml('m-inc2', {day:Store.todayDate().getDate()})}
       </div>
+
       <div id="m-tx-expense-fields">
         <div class="field"><label>Transaction name</label><input id="m-exp-notes" value="${escapeHtml(notesVal)}" placeholder="e.g. Restaurant with friends"></div>
         ${existing? '' : `
@@ -1402,6 +1515,7 @@ const Modals = {
           <div class="field"><label id="m-exp-date-label">Date</label><input id="m-exp-date" type="date" value="${dateVal}"></div>
         </div>
       </div>
+
       <div class="modal-actions">
         ${existing? `<button class="btn btn-danger" style="flex:0 0 auto;width:50px;" onclick="Data.deleteExpense('${existing.id}');Modals.close();">✕</button>` : `<button class="btn btn-ghost" onclick="Modals.close()">Cancel</button>`}
         <button class="btn btn-primary" onclick="Modals.submitExpense('${existing?existing.id:''}')">${existing? 'Save changes' : 'Add'}</button>
@@ -1502,6 +1616,32 @@ const Modals = {
         <button class="btn btn-primary" onclick="Modals.close();setTimeout(()=>Modals.expenseOnDate('${dateStr}'),260);">+ Expense</button>
       </div>`);
   },
+  openingBalance(){
+    const key = Store.state.activeMonth;
+    const m = Calc.monthData(key);
+    const hasOverride = m.openingOverride!==undefined && m.openingOverride!==null;
+    const current = Calc.openingBalance(key);
+    this.open(`
+      <div class="modal-handle"></div>
+      <h3>Opening balance · ${monthLabel(key)}</h3>
+      <div class="card tight" style="margin-bottom:14px;font-size:12.5px;color:var(--text-dim);line-height:1.5;">
+        ${hasOverride
+          ? 'This month is using a <b style="color:var(--amber);">manual value</b>. You can change it or go back to automatic carry-over from last month.'
+          : 'Currently <b style="color:var(--mint);">carried over automatically</b> from last month\'s ending balance. Set a manual value only if you want to correct it.'}
+      </div>
+      <div class="field"><label>Opening balance (${currencySym()})</label><input id="m-open-amount" type="number" value="${Math.round(current*100)/100}" placeholder="0"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="Modals.close()">Cancel</button>
+        <button class="btn btn-primary" onclick="Modals.submitOpening()">Save manual value</button>
+      </div>
+      ${hasOverride? `<button class="btn btn-ghost" style="margin-top:10px;" onclick="Data.setOpeningOverride(null);Modals.close();">↺ Back to automatic carry-over</button>` : ''}`);
+  },
+  submitOpening(){
+    const val = document.getElementById('m-open-amount').value;
+    if(val==='') return;
+    Data.setOpeningOverride(val);
+    this.close();
+  },
   expenseOnDate(dateStr){
     this.expense();
     setTimeout(()=>{ const el=document.getElementById('m-exp-date'); if(el) el.value = dateStr; }, 30);
@@ -1534,6 +1674,7 @@ const Modals = {
     this.close();
   }
 };
+
 /* =========================================================================
    NAVIGATION
    ========================================================================= */
@@ -1555,6 +1696,7 @@ const Views = {
     RenderAll();
   }
 };
+
 const PLANNER_TAB_ORDER = ['overview','income','bills','expenses','calendar'];
 const PlannerTabs = {
   current:'overview',
@@ -1608,6 +1750,7 @@ function buildNav(){
       <span>${item.label}</span>
     </div>`).join('');
 }
+
 /* =========================================================================
    TOAST
    ========================================================================= */
@@ -1619,6 +1762,7 @@ function toast(msg){
   clearTimeout(toastTimer);
   toastTimer = setTimeout(()=>el.classList.remove('show'), 2200);
 }
+
 /* =========================================================================
    RENDER ALL
    ========================================================================= */
@@ -1632,6 +1776,7 @@ function RenderAll(){
   if(v==='goals') renderGoals();
   if(v==='settings') renderSettings();
 }
+
 /* =========================================================================
    CLOUD SYNC (Firebase Realtime Database, via window bridge from module script below)
    ========================================================================= */
@@ -1677,6 +1822,7 @@ window.onFirebaseData = function(remote){
   }
   setSyncStatus('synced');
 };
+
 /* =========================================================================
    INIT
    ========================================================================= */
@@ -1687,10 +1833,12 @@ document.getElementById('view-dashboard').classList.add('active');
 Chart.defaults.font.family = "'Inter', sans-serif";
 RenderAll();
 </script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDxeIMVhzqUxTfLEvdeqcf3pb29jKbKFq0",
   authDomain: "finance-tracker-4478d.firebaseapp.com",
@@ -1700,15 +1848,19 @@ const firebaseConfig = {
   messagingSenderId: "837346395958",
   appId: "1:837346395958:web:0bb3dde3fd032141145597"
 };
+
 const fbApp = initializeApp(firebaseConfig);
 const auth = getAuth(fbApp);
 const db = getDatabase(fbApp);
 const dataRef = ref(db, 'myFinances');
+
 window.__fb = { ready:false };
+
 signInAnonymously(auth).catch(err=>{
   console.warn('Firebase auth error:', err);
   if(window.setSyncStatus) window.setSyncStatus('offline');
 });
+
 onAuthStateChanged(auth, user=>{
   if(!user) return;
   window.__fb.ready = true;
@@ -1720,6 +1872,7 @@ onAuthStateChanged(auth, user=>{
     if(window.setSyncStatus) window.setSyncStatus('offline');
   });
 });
+
 window.cloudPush = function(payload){
   if(!window.__fb.ready) return;
   if(window.setSyncStatus) window.setSyncStatus('syncing');
