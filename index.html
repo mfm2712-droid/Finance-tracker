@@ -609,7 +609,11 @@ const Store = {
     if(!this.state.months[key]){
       this.state.months[key] = {income:[],recurring:[],expenses:[]};
     }
-    return this.state.months[key];
+    const m=this.state.months[key];
+if(!m.income)m.income=[];
+if(!m.recurring)m.recurring=[];
+if(!m.expenses)m.expenses=[];
+return m;
   },
   getToday(){
     return this.state.todayAuto ? new Date().toISOString().slice(0,10) : this.state.today;
